@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password</title>
+  <link rel="icon" type="image/x-icon" href="../Images/angel.png">
+  <style>
+    /* Set a global font family for all text */
+    body {
+      font-family: 'Roboto', sans-serif; /* Use 'Roboto' for all text */
+      background-color: #f7fafc; /* Light gray background */
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #e2e8f0; /* Light gray color */
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+    .container {
+      background-color: #2d3748; /* Dark gray background */
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .container h2 {
+      color: #f97316; /* Orange color for the heading */
+      margin-bottom: 20px;
+      font-family: 'Georgia', serif; /* Specific font for the heading */
+    }
+
+    .instructions {
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* Flexbox to align contact information horizontally */
+    .contacts {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .person {
+      width: 30%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Style for the contact info buttons */
+    .contact-info {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .contact-info a {
+      display: inline-block;
+      background-color: #f97316; /* Orange background */
+      color: #ffffff; /* White text */
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      margin: 8px 0;
+    }
+
+    .contact-info a:hover {
+      background-color: #d97706; /* Darker orange on hover */
+    }
+
+    .contact-info .phone {
+      margin-top: 8px;
+    }
+
+    /* Responsive for smaller screens */
+    @media (max-width: 768px) {
+      .person {
+        width: 100%; /* Stack vertically on smaller screens */
+        margin-bottom: 15px;
+      }
+    }
+    .menu-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .menu-btn div {
+    background-color: #f77417;
+    height: 2px;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .toggle-top {
+    transform: rotate(45deg) translate(3px, -4.5px);
+  }
+
+  .toggle-middle {
+    opacity: 0;
+  }
+
+  .toggle-bottom {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Menu Links Container */
+  .menu-links {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    pointer-events: none; /* Prevent clicks when hidden */
+  }
+
+  .menu-links.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .menu-links a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .menu-links a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .menu-links a:last-child {
+    border-bottom: none;
+  }
+  </style>
+</head>
+<body>
+  <div class="menu-btn" onclick="toggleMenu()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <div id="menuLinks" class="menu-links">
+    <a href="../Wellcome/index.html">🏠 Home</a>
+    <a href="../User Login/index.html">🔑 Login</a>
+    <a href="../User Sign Up/index.html">📝 Sign Up</a>
+    <a href="../About Us/index.html">ℹ️ About</a>
+  </div>
+  <div class="container">
+    <h2><ul>Forgot Password Assistance</ul></h2>
+    <p class="instructions">
+        <p class="instructions">
+            If you've forgotten your password, please contact one of the individuals listed below for assistance. 
+            You can reach them via Telegram or by calling the phone numbers provided. And your pay 50 birr for get your password<br>
+            የይለፍ ቃልዎን ከረሱ፣ እባክዎን ለእርዳታ ከታች ከተዘረዘሩት ግለሰቦች አንዱን ያግኙ።
+            በቴሌግራም ወይም በተሰጡት ስልክ ቁጥሮች በመደወል ማግኘት ይችላሉ። እና የይለፍ ቃልዎን ለማግኘት 50 ብር ይከፍላሉ።
+          </p>
+    </p>
+    
+    <!-- Flex container to hold the contact details horizontally -->
+    <div class="contacts">
+      <!-- User 1: Yohannes Hussen -->
+      <div class="person">
+        <strong>Dn Yohannes Hussen <br> ዲያቆን ዩሃንስ ሁሴን</strong><br>
+        <div class="contact-info">
+          <a href="https://t.me/@YohannesHussen" target="_blank">On Telegram</a><br>
+          <a href="tel:+251983227678">📞 +251983227678</a>
+        </div>
+      </div>
+      
+      <!-- User 2: Amha Kifle -->
+      <div class="person">
+        <strong>Dn Amha Kifle <br> ዲያቆን አምሃ ክፍሌ</strong><br>
+        <div class="contact-info">
+          <a href="https://t.me/@Dn_amu_e27_ki_17" target="_blank">On Telegram</a><br>
+          <a href="tel:+251984082429">📞 +251984082429</a>
+        </div>
+      </div>
+      
+      <!-- User 3: Qiruble -->
+      <div class="person">
+        <strong>Dn Qiruble Mekbeb <br> ዲያቆን ኪሩበል መክብብብ</strong><br>
+        <div class="contact-info">
+          <a href="https://t.me/@Kirubyop" target="_blank">On Telegram</a><br>
+          <a href="tel:+251989753203">📞 +251989753203</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function toggleMenu() {
+    const menuLinks = document.getElementById('menuLinks');
+    const lines = document.querySelectorAll('.menu-btn div');
+
+    // Toggle visibility with animation
+    menuLinks.classList.toggle('visible');
+
+    // Toggle the hamburger icon to an X (cross) shape
+    lines[0].classList.toggle('toggle-top');
+    lines[1].classList.toggle('toggle-middle');
+    lines[2].classList.toggle('toggle-bottom');
+  }
+  </script>
+</body>
+</html>

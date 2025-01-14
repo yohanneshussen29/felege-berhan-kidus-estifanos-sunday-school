@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  <link rel="icon" type="image/x-icon" href="../Images/angel.png">
+  <style>
+    /* Global Styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f4f8;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 20px;
+    }
+
+    form {
+        width: 50%;
+        margin: 0 auto;
+        background-color: #acb9c4;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+
+    input {
+        width: 91.5%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    select {
+      width: 94.8%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #5b0091;
+    }
+
+    hr {
+        width: 80%;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+    }
+
+    /* Large screen styles */
+    @media (min-width: 768px) {
+        form {
+            width: 50%; /* Keep form in center on large screens */
+        }
+    }
+
+    /* Phone screen styles */
+    @media (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 24px;
+            padding: 10px;
+        }
+
+        form {
+            width: 90%; /* Form will take up more space on smaller screens */
+            padding: 15px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        input{
+            padding: 12px;
+            font-size: 14px;
+        }
+        select {
+            padding: 11px;
+            font-size: 14px;
+            width: 100%;
+        }
+        button {
+            font-size: 14px;
+        }
+
+        hr {
+            width: 100%;
+        }
+    }
+
+    table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 1em;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode table {
+            background-color: #2e3b4e;
+            color: #f0f4f8;
+        }
+
+        table thead tr {
+            background-color: #009879;
+            color: white;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f3f3f3;
+            color: black;
+        }
+
+        body.dark-mode table tbody tr:nth-child(even) {
+            background-color: #3e4a5e;
+            color: #f0f4f8;
+        }
+
+        @media screen and (max-width: 1075px) {
+            .container {
+                overflow-x: auto;
+            }
+
+            table {
+                width: 100%;
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                border-collapse: collapse;
+            }
+        }
+        .show{
+          width: 70%;
+          justify-content: center;
+          align-items: center;
+          margin-left: 15%;
+        }
+        .Save {
+          width: 50%;
+          justify-content: center;
+          align-items: center;
+          padding: 7px;
+        }
+        th{
+          background-color: #009879;
+        }
+        .menu-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .menu-btn div {
+    background-color: #333;
+    height: 2px;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .toggle-top {
+    transform: rotate(45deg) translate(3px, -4.5px);
+  }
+
+  .toggle-middle {
+    opacity: 0;
+  }
+
+  .toggle-bottom {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Menu Links Container */
+  .menu-links {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none; /* Prevent clicks when hidden */
+  }
+
+  .menu-links.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .menu-links a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .menu-links a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .menu-links a:last-child {
+    border-bottom: none;
+  }
+</style>
+</head>
+<body>
+  <!-- Menu Toggle Button -->
+<div class="menu-btn" onclick="toggleMenu()">
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+</div>
+
+<!-- Menu Links -->
+<div id="menuLinks" class="menu-links">
+  <a href="#">📞 Contact Us</a>
+  <a href="#">ℹ️ About Us</a>
+</div>
+
+  <h1>Student Registration</h1>
+
+  <!-- Registration Form -->
+  <form id="studentForm" onsubmit="saveStudent(event)">
+    <label for="name">Name / ስም ያስገቡ:</label>
+    <input required type="text" id="name" name="name"  placeholder="Enter Your Name / ስም ያስገቡ ፡">
+    <br><br>
+
+    <label for="fatherName">Father's Name / የአባት ስም ያስገቡ ፡፡</label>
+    <input required type="text" id="fatherName" name="fatherName" placeholder="Enter Your Father`s Name / የአባት ስም ያስገቡ ፡">
+    <br><br>
+
+    <label for="grandFatherName">Grand Father's Name / የአያት ስም ያስገቡ:</label>
+    <input required type="text" id="grandFatherName" name="grandFatherName" placeholder="Enter Your Grand Father's Name / የአያት ስም ያስገቡ ፡">
+    <br><br>
+
+    <label for="motherName">Mother`s Name / የእናት ስም ያስገቡ:</label>
+    <input required type="text" id="motherName" name="motherName" placeholder="Enter Your Mother`s Name / የእናት ስም ያስገቡ ፡">
+    <br><br>
+
+    <label for="christianName">Christian Name / የክርስትና ስም ያስገቡ ፡</label>
+    <input required type="text" id="christianName" name="christianName" placeholder="Enter Your Christian Name / የክርስትና ስም ያስገቡ ፡">
+    <br><br>    
+
+    <label for="age">Age / እድሜዎትን ያስገቡ:</label>
+    <input required type="number" id="age" name="age" placeholder="Enter Your Age / እድሜዎትን ያስገቡ ፡">
+    <br><br>
+
+    <label for="birthDate">Birth Date / የትውልድ ቀን ያስገቡ:</label>
+    <input required type="date" id="birthDate" name="birthDate" placeholder="Enter Your Birth Date / የትውልድ ቀን ያስገቡ ፡">
+    <br><br> 
+
+    <label for="gender">Gender / ጾታዎን ይምረጡ:</label>
+    <select name="Gender" id="gender" required aria-placeholder="Enter Your Gender / ጾታዎን  ይምረጡ  ፡">
+      <option value="">Gender / ጾታ</option>
+      <option value="Male / ወንድ">Male / ወንድ</option>
+      <option value="Female / ሴት">Female / ሴት</option>
+    </select>
+    <br><br>
+
+    <label for="phoneNumber">Phone Number / ስልክ ቁጥርዎን ያስገቡ :</label>
+    <input required type="number" id="phoneNumber" name="phoneNumber" placeholder="Enter Your Phone Number / ስልክ ቁጥርዎን ያስገቡ ፡">
+    <br><br>
+
+    <label for="classStatus">Class Status / የመንፈሳዊ ትምህርት ሁኔታዎን ይምረጡ:</label>
+    <select name="Class Status" id="classStatus" class="input-group" required aria-placeholder="Enter Your Class Status / የመንፈሳዊ ትምህርት ሁኔታዎን ይምረጡ ፡">
+      <option value="">Class Status / የትምህርት ሁኔታ</option>
+      <option value="Nothing">I Have No Teach / ምንም አልተማርኩም.</option>
+      <option value="G 1 Student">I Born G 1 Student / 1ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="G 2 Student">I Born G 2 Student / 2ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="G 3 Student">I Born G 3 Student / 3ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="G 4 Student">I Born G 4 Student / 4ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="G 5 Student">I Born G 5 Student / 5ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="G 6 Student">I Born G 6 Student / 6ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="G 7 Student">I Born G 7 Student / 7ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="G 8 Student">I Born G 8 Student / 8ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="G 9 Student">I Born G 9 Student / 9ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="G 10 Student">I Born G 10 Student / 10ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="G 11 Student">I Born G 11 Student / 11ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="G 12 Student">I Born G 12 Student / 12ኛ ክፍል እየተማርኩ ነው.</option>
+      <option value="Finished">I Have Finished Class / ጨርሻለው.</option>
+    </select>
+    <br><br>
+
+    <label for="password">Password / የሚስጥር (የይለፍ) ቃልዎን ያስገቡ :</label>
+    <input required type="password" id="password" name="password" placeholder="Enter Your Password / የሚስጥር (የይለፍ) ቃልዎን ያስገቡ ፡">
+    <br><br>
+    <button type="submit">Register</button>
+    <br><br><br>
+    <a href="../User Login/index.html">
+      <button type="button" class="Save">Back / ለመመለስ</button>
+    </a>
+  </form>
+
+  <hr>
+  <script>
+function toggleMenu() {
+    const menuLinks = document.getElementById('menuLinks');
+    const lines = document.querySelectorAll('.menu-btn div');
+
+    // Toggle visibility with animation
+    menuLinks.classList.toggle('visible');
+
+    // Toggle the hamburger icon to an X (cross) shape
+    lines[0].classList.toggle('toggle-top');
+    lines[1].classList.toggle('toggle-middle');
+    lines[2].classList.toggle('toggle-bottom');
+  }
+
+    const API_URL = 'https://bakend-server-7.onrender.com/store'; // Save only to 'store'
+
+    function saveStudent(event) {
+  event.preventDefault();
+  const form = document.getElementById('studentForm');
+  const studentData = {
+    name: document.getElementById('name').value,
+    fatherName: document.getElementById('fatherName').value,
+    grandFatherName: document.getElementById('grandFatherName').value,
+    motherName: document.getElementById('motherName').value,
+    christianName: document.getElementById('christianName').value,
+    age: document.getElementById('age').value,
+    birthDate: document.getElementById('birthDate').value,
+    gender: document.getElementById('gender').value,
+    phoneNumber: document.getElementById('phoneNumber').value,
+    classStatus: document.getElementById('classStatus').value,
+    password: document.getElementById('password').value,
+  };
+
+  fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(studentData),
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json(); // Parse JSON if the response is successful
+    })
+    .then(data => {
+      alert(
+        `Dear ${studentData.name} , you have been registered successfully!\n\n` +
+        `ውድ ${studentData.name} ${studentData.fatherName} ${studentData.grandFatherName} በተሳካ ሁኔታ ምዝገባውን አካሂደዋል። ውድ የሰንበት ት/ት ቤታችን አባል እርስዎ በሰጡን ስልክ ቁጥር በ${studentData.phoneNumber} እስከምንደውልሎት ድረስ በድጋሚ መመዝገብ አያስፈልጎትም ፣ ወይም በ "0983227678 ዲ/ን ዩሃንስ" ወይም "0984082429 ዲ/ን አምኃ" ወይም "0989753203 ዲ/ን ኪሩበል" በመደወል መጠየቅ የምትችሉ መሆኑን እየገለጽን እስከአሁን ለነበረን ቆይታ በልዑል እግዚአብሄር ስም እናመሰግናለን ። ከፈለገ ብርሃን ቅዱስ እስጢፋኖስ ሰንበት ት/ት ቤት ፣ ካራ ቆሬ , አዲስ አበባ`
+      );
+      form.reset();
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert(`Failed to register student: ${error.message}`);
+    });
+}
+  </script>
+</body>
+</html>

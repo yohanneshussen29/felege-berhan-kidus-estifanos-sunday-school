@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Contact Us</title>
+  <link rel="icon" type="image/x-icon" href="../Images/angel.png">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f97316; /* Tailwind bg-orange-500 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #2d3748; /* Tailwind bg-gray-800 */
+      color: white;
+      padding: 50px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 1200px;
+      width: 90%;
+      display: flex;
+    }
+
+    .image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .content {
+      flex: 70;
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: 32px;
+      font-weight: bold;
+      color: #ffffff; /* Tailwind text-blue-900 */
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 8fr;
+      gap: 10px;
+      color: #ffffff; /* Tailwind text-gray-700 */
+    }
+
+    .grid div {
+      /* display: flex; */
+      flex-direction:column;
+    }
+
+    .grid h2 {
+      font-weight: 600;
+    }
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row;
+      }
+
+      .image-container {
+        width: 50%;
+      }
+
+      .content {
+        width: 50%;
+        text-align: center;
+      }
+
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    /* Menu Button Styling */
+    .menu-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .menu-btn div {
+    background-color: #ffffff;
+    height: 2px;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .toggle-top {
+    transform: rotate(45deg) translate(3px, -4.5px);
+  }
+
+  .toggle-middle {
+    opacity: 0;
+  }
+
+  .toggle-bottom {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Menu Links Container */
+  .menu-links {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    pointer-events: none; /* Prevent clicks when hidden */
+  }
+
+  .menu-links.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .menu-links a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .menu-links a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .menu-links a:last-child {
+    border-bottom: none;
+  }
+  </style>
+</head>
+<body>
+    <div class="menu-btn" onclick="toggleMenu()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div id="menuLinks" class="menu-links">
+        <a href="../Wellcome/index.html">🏠 Home</a>
+        <a href="../User Login/index.html">🔑 Login</a>
+        <a href="../User Sign Up/index.html">📝 Sign Up</a>
+        <a href="../About Us/index.html">ℹ️ About</a>
+      </div>
+  <div class="container">
+    <div class="image-container">
+      <img src="" alt="">
+    </div>
+    <div class="content">
+      <h1>CONTACT US</h1>
+      <h4 style="font-family: 'Georgia', serif; font-size: 22px; color: #f97316; margin-bottom: 10px; text-align: center;">
+        ወደ ሮሜ ሰዎች 12:7
+      </h4>
+        <p style="font-family: 'Noto Serif Ethiopic', 'Georgia', serif; font-size: 18px; line-height: 1; color: #f7fafc; text-align: justify; background-color: #1a202c; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+          ስጦታችን ሌሎችን ማገልገል ከሆነ በትጋት እናገልግል፤ ስጦታችን ማስተማር ከሆነ በሚገባ እናስተምር፤ ስጦታችን መምከር ከሆነ እንምከር፤ ስጦታችን መለገሥ ከሆነ ከልብ እንለግሥ፤ ስጦታችን ማስተዳደር ከሆነ በትጋት እናስተዳድር፤ ስጦታችን ርኅራኄ ማድረግ ከሆነ ይህንኑ በደስታ እናድርግ። 
+          ግብዝነት የሌለበት እውነተኛ ፍቅር ይኑራችሁ፤ ክፉውን ነገር ጥሉ፤ መልካሙን ነገር ተከተሉ። እርስ በርሳችሁ በወንድማማችነት ፍቅር ተዋደዱ፤
+        </p>
+      </p>
+      <div class="grid">
+        <div>
+          <h2>Name</h2>
+          <p> D/n Yohannes Hussen <br> ዲያቆን ዩሐንስ ሁሴን</p>
+        </div>
+        <div>
+          <h2>Number</h2>
+          <p>+251 983227678</p>
+        </div>
+        <div>
+          <h2>Site link</h2>
+          <div>
+            <a href="https://t.me/@YohannesHussen" target="_blank" style="text-decoration: none; color: #f97316;">On Telegram</a> <br>
+            <br><br>
+            <a href="https://et.linkedin.com/in/yohannes-hussen-968aab2a6" target="_blank" style="text-decoration: none; color: #f97316;">On LinkedIn</a> <br>
+          </div>
+          <br><br>
+          <a href="https://yohanneshussen2930@gmail.com" target="_blank" style="text-decoration: none; color: #f97316;">On G-Mail</a>
+        </div>
+        <div>
+          <h2>Thanks ምስጋና :</h2>
+          <p>ይሄንን የሰንበት ት/ት ቤታችንን መተግበሪያ (Web) ስሰራ በእውቀታችሁ ፤ በሃሳባችሁ ፤ በጸሎታችሁ ፤ እንዲሁም በተለያዩ ነገሮች ስትደግፉኝ የነበራችሁ በሰማእቱ በቅዱስ እስጢፋኖስ ፣በሊቀ መልዐኩ በቅዱስ ሚካእኤል ፤ በእመቤታችን በቅድስት ድንግል ማርያም ስም አመሰግናለሁ ። አነሳስቶ ላስጀመረኝ አስጀምሮም ላስፈጸመኝ ለ ልዑል እግዚአብሄር ምስጋና ይግባው!!!  ወስብሓት ለእግዚአብሄር ወለወላዲቱ ድንግል ወለመስቀሉ ክቡር !</p>
+        </div>
+      </div>
+      <h4 style="font-family: 'Georgia', serif; font-size: 22px; color: #f97316; margin-bottom: 10px; text-align: center;">
+        2 ወደ ቆሮንቶስ ሰዎች 3:8
+      </h4>
+      <p style="font-family: 'Noto Serif Ethiopic', 'Georgia', serif; font-size: 18px; line-height: 1; color: #f7fafc; text-align: justify; background-color: #1a202c; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+        ታዲያ፥ በመንፈስ ቅዱስ አማካይነት የሚገኘው አገልግሎት የበለጠ ክብር አይኖረውምን? ሰዎች የተኰነኑበት አገልግሎት ይህን ያኽል ክብር ካለው ሰዎች የሚጸድቁበት አገልግሎትማ እንዴት እጅግ የበለጠ ክብር አይኖረውም? የኋለኛው ክብር እጅግ የላቀ ከመሆኑ የተነሣ ያለፈው ክብር ምንም እንዳልነበረው ይቈጠራል። ያ እየደበዘዘ ይሄድ የነበረው ነገር ይህን ያኽል ክብር ከነበረው፥ ለዘለዓለም ጸንቶ የሚኖረው ነገርማ እንዴት እጅግ የበለጠ ክብር አይኖረውም!
+      </p>
+    </div>
+  </div>
+  <script>
+    function toggleMenu() {
+    const menuLinks = document.getElementById('menuLinks');
+    const lines = document.querySelectorAll('.menu-btn div');
+
+    // Toggle visibility with animation
+    menuLinks.classList.toggle('visible');
+
+    // Toggle the hamburger icon to an X (cross) shape
+    lines[0].classList.toggle('toggle-top');
+    lines[1].classList.toggle('toggle-middle');
+    lines[2].classList.toggle('toggle-bottom');
+  }
+  </script>
+</body>
+</html>

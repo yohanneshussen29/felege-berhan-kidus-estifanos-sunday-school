@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To See Profile</title>
+  <link rel="icon" type="image/x-icon" href="../Images/angel.png">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+    flex-direction: column;
+}
+
+form {
+        width: 30%;
+        background-color: #acb9c4;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 310px;
+    height: 580px;
+    transition: 0.3s;
+}
+
+.login-box:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    background-color: #6a0dad;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.icon img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+h2 {
+    color: #6a0dad;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+ input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+ input:focus {
+    border-color: #6a0dad;
+    outline: none;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #6a0dad;
+}
+
+.options a {
+    color: #6a0dad;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 99%;
+    margin-left: 1%;
+    padding: 10px;
+    background-color: #6a0dad;
+    color: rgb(230, 226, 226);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #5b0091;
+}
+
+#wait {
+    margin-top: 5%;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(156, 152, 152);
+    align-items: start;
+}
+
+#or {
+    color: #6a0dad;
+    font-weight: bold;
+}
+
+.user-info {
+    margin-top: 20px;
+    display: none;
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-back {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #5b0091;
+}
+
+.user-list-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+table thead tr {
+    background-color: #009879;
+    color: rgb(0, 0, 0);
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #000000;
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+    color: black;
+}
+
+.switch-container {
+    position: absolute;
+    top: 20px;
+    left: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgb(0, 0, 0);
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #ffffff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #000000;
+}
+
+.login-box.dark-mode {
+    background-color: #1d2630;
+    color: #000000;
+}
+
+.icon.dark-mode {
+    background-color: #6a0dad;
+}
+
+h2.dark-mode {
+    color: #ffffff;
+}
+
+h4.dark-mode {
+    color: #ffffff;
+}
+
+span {
+    color: black;
+    font-weight: bolder;
+}
+
+.spn {
+    color: #95dadf;
+    word-spacing: 10px;
+}
+
+.back {
+    width: 117px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .login-box {
+        width: 90%;
+        padding: 20px;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+
+    .user-list-container {
+        margin-top: 10px;
+        overflow-x: scroll;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .icon {
+        width: 120px;
+        height: 120px;
+    }
+
+    .icon img {
+        width: 100px;
+        height: 100px;
+    }
+    form {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #acb9c4;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .login-box {
+        width: 100%;
+        height: auto;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .icon img {
+        width: 90px;
+        height: 90px;
+    }
+
+form {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #acb9c4;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .user-list-container {
+        margin-top: 15px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+
+.menu-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .menu-btn div {
+    background-color: #333;
+    height: 2px;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .toggle-top {
+    transform: rotate(45deg) translate(3px, -4.5px);
+  }
+
+  .toggle-middle {
+    opacity: 0;
+  }
+
+  .toggle-bottom {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Menu Links Container */
+  .menu-links {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none; /* Prevent clicks when hidden */
+  }
+
+  .menu-links.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .menu-links a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .menu-links a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .menu-links a:last-child {
+    border-bottom: none;
+  }
+  h5,a{
+    color: #6a0dad;
+    text-align: right;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+  
+  <div class="menu-btn" onclick="toggleMenu()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <div id="menuLinks" class="menu-links">
+    <a href="#">📞 Contact Us</a>
+    <a href="#">ℹ️ About Us</a>
+  </div>
+<br> <br>
+  <form id="loginForm" onsubmit="loginUser(event)">
+    <div class="icon">
+      <img src="../Images/two.png" alt="Oppps Something Went Wrong" id="logo-two">
+  </div>
+  <h2>To See My Profile <br> ስለራሴ መረጃ ለማየት</h2><br>
+    <input type="text" id="userId" name="userId" placeholder="Enter User ID / የመለያ ቁጥር ያስገቡ" required>
+    <br><br><br>
+    <input type="password" id="password" name="password" placeholder="Enter Password / የሚስጥር ቁጥር ያስገቡ" required>
+   <h5><a href="../Forget Password/index.html">Forgot Password <br> የሚስጥር ቁጥር ረሳሁኝ</a></h4> 
+    <button type="submit" class="login">Login / ይግቡ</button>
+    <br><br>
+    <a href="../User Login/index.html">
+      <button type="button" class="back">Back / ለመመለስ</button>
+    </a>
+  </form>
+
+  <div id="userDetails" class="hidden">
+    <h2>User Details</h2>
+    <table border="1">
+      <tr>
+        <th>Name: ስም:</th>
+        <td id="name"></td>
+      </tr>
+      <tr>
+        <th>Father's Name: የአባት ስም:</th>
+        <td id="fatherName"></td>
+      </tr>
+      <tr>
+        <th>Grand Father's Name: የአያት ስም:</th>
+        <td id="grandFatherName"></td>
+      </tr>
+      <tr>
+        <th>Mother Name / :</th>
+        <td id="motherName"></td>
+      </tr>
+      <tr>
+        <th>Christian Name:</th>
+        <td id="christianName"></td>
+      </tr>
+      <tr>
+        <th>Age: እድሜ</th>
+        <td id="age"></td>
+      </tr>
+      <tr>
+        <th>Birth Date / :</th>
+        <td id="birthDate"></td>
+      </tr>
+      <tr>
+        <th>Gender / :</th>
+        <td id="gender"></td>
+      </tr>
+      <tr>
+        <th>Phone Number: ስልክ ቁጥር:</th>
+        <td id="phoneNumber"></td>
+      </tr>
+      <tr>
+        <th>Class Status: የትምህርት ሁኔታ:</th>
+        <td id="classStatus"></td>
+      </tr>
+    </table>
+    <br>
+    <button onclick="backToLogin()">Back / ይውጡ</button>
+  </div>
+
+
+  <script>
+    // Toggle the menu links visibility
+    function toggleMenu() {
+    const menuLinks = document.getElementById('menuLinks');
+    const lines = document.querySelectorAll('.menu-btn div');
+
+    // Toggle visibility with animation
+    menuLinks.classList.toggle('visible');
+
+    // Toggle the hamburger icon to an X (cross) shape
+    lines[0].classList.toggle('toggle-top');
+    lines[1].classList.toggle('toggle-middle');
+    lines[2].classList.toggle('toggle-bottom');
+  }
+
+    const API_URL = 'https://bakend-server-7.onrender.com/users/login';
+
+    // Login user
+    function loginUser(event) {
+      event.preventDefault();
+
+      const userId = document.getElementById('userId').value;
+      const password = document.getElementById('password').value;
+
+      fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, password }),
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Invalid credentials / አግባብነት የሌለው መለያ ቁጥር ወይም የሚስጥር ቁጥር አስገብተዋል እባክዎ አስተካክለው እንደገና ይሞክሩ ። እናመሰግናለን ከ ፈለገ ብርሃን ቅዱስ እስጢፋኖስ ሰንበት ት/ት ቤት ።');
+          }
+          return response.json();
+        })
+        .then(user => {
+  // Display user details
+  document.getElementById('loginForm').classList.add('hidden');
+  document.getElementById('userDetails').classList.remove('hidden');
+
+  document.getElementById('name').innerText = user.name;
+  document.getElementById('fatherName').innerText = user.fatherName;
+  document.getElementById('grandFatherName').innerText = user.grandFatherName;
+  document.getElementById('motherName').innerText = user.motherName;
+  document.getElementById('christianName').innerText = user.christianName;
+  document.getElementById('age').innerText = user.age;
+  document.getElementById('birthDate').innerText = user.birthDate;
+  document.getElementById('gender').innerText = user.gender;
+  document.getElementById('phoneNumber').innerText = user.phoneNumber;
+  document.getElementById('classStatus').innerText = user.classStatus;
+})
+
+        .catch(error => {
+          alert('Login failed: / አግባብነት የሌለው መለያ ቁጥር ወይም የሚስጥር ቁጥር አስገብተዋል እባክዎ አስተካክለው እንደገና ይሞክሩ ። እናመሰግናለን ከ ፈለገ ብርሃን ቅዱስ እስጢፋኖስ ሰንበት ት/ት ቤት ።');
+        });
+    }
+
+    // Back to login form
+    function backToLogin() {
+      document.getElementById('loginForm').classList.remove('hidden');
+      document.getElementById('userDetails').classList.add('hidden');
+
+      // Clear form inputs
+      document.getElementById('userId').value = '';
+      document.getElementById('password').value = '';
+    }
+  </script>
+</body>
+
+</html>

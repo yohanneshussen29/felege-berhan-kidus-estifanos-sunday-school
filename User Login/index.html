@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose One</title>
+    <link rel="icon" type="image/x-icon" href="../Images/angel.png">
+    <style>
+       body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 97vh;
+      flex-direction: column;
+  }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .login-box {
+            background-color: #acb9c4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .icon {
+            background-color: #6a0dad;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .icon img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 5px;
+        }
+
+        h2 {
+            color: #004b9b;
+            font-size: 19px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        button {
+            width: 99%;
+            margin-left: 0%;
+            padding: 10px;
+            background-color: #6a0dad;
+            color: rgb(230, 226, 226);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            align-items: start;
+            justify-content: left;
+        }
+
+        button:hover {
+            background-color: #5b0091;
+        }
+
+        .back {
+            text-decoration: none;
+            margin-left: -57%;
+            width: 117px;
+            padding: 10px;
+            font-size: 14px;
+            justify-content: left;
+        }
+        .menu-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .menu-btn div {
+    background-color: #333;
+    height: 2px;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .toggle-top {
+    transform: rotate(45deg) translate(3px, -4.5px);
+  }
+
+  .toggle-middle {
+    opacity: 0;
+  }
+
+  .toggle-bottom {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Menu Links Container */
+  .menu-links {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none; /* Prevent clicks when hidden */
+    z-index: 1001;
+  }
+
+  .menu-links.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .menu-links a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .menu-links a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .menu-links a:last-child {
+    border-bottom: none;
+  }
+        h6 {
+            color: rgb(139, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+  <!-- Menu Toggle Button -->
+<div class="menu-btn" onclick="toggleMenu()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  
+  <!-- Menu Links -->
+  <div id="menuLinks" class="menu-links">
+    <a href="../Contact Us/index.html">📞 Contact Us</a>
+    <a href="../About Us/index.html">ℹ️ About Us</a>
+  </div>
+    <br> <br><br><br><br><br>
+
+    <div class="login-container">
+        <div class="login-box">
+            <div class="icon">
+                <div class="icon" id="icon-two">
+                    <img src="../Images/two.png" alt="Opssss Sorry Something Went Wrong" id="logo-two">
+                </div>
+            </div>
+            <h2>Wellcome Choose One <br>እንኳን ደህና መጡ አንዱን ይምረጡ</h2>
+            <h6>Wait , To Use All Our Accsess And Before The Log In Please Rigister In Rigister Place Thank You. <br> ቆይ , የኛን ሁሉም አገልግሎቶች ለማግኘት ለመመዝገብ የሚለው ውስጥ በመግባት መመዝገብ ያስፈልጎታል። እናመሰግናለን</h6>
+            <a href="../User Login/See Output.html">
+                <button>To See Output / ስለራሴ ውጤት ለማየት</button>
+            </a>
+            <br><br>
+            <a href="../User Login/See Profile.html">
+                <button>To See Profile / ስለራሴ መረጃ ለማየት</button>
+            </a>
+            <br><br>
+            <a href="../User Sign Up/index.html">
+                <button>Rigister / ለመመዝገብ</button>
+            </a>
+            <br><br><br>
+            <a href="../Wellcome/index.html">
+                <button class="back">Back / ለመመለስ</button>
+            </a>
+        </div>
+    </div>
+<script>
+    function toggleMenu() {
+    const menuLinks = document.getElementById('menuLinks');
+    const lines = document.querySelectorAll('.menu-btn div');
+
+    // Toggle visibility with animation
+    menuLinks.classList.toggle('visible');
+
+    // Toggle the hamburger icon to an X (cross) shape
+    lines[0].classList.toggle('toggle-top');
+    lines[1].classList.toggle('toggle-middle');
+    lines[2].classList.toggle('toggle-bottom');
+  }
+
+</script>
+</body>
+</html>

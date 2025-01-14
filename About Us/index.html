@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="../Images/angel.png">
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f97316; /* Tailwind bg-orange-500 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #2d3748; /* Tailwind bg-gray-800 */
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 1200px;
+      width: 90%;
+    }
+
+    /* Header Styling */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 130px;
+      height: 130px;
+      margin-left: 90px;
+      border-radius: 50%;
+      align-items: center;
+    }
+
+    /* Navigation Styling */
+    nav a {
+      text-decoration: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      margin-left: 16px;
+    }
+
+    nav a:hover {
+      color: #f97316; /* Tailwind hover:text-orange-500 */
+    }
+
+    .nav-item-active {
+      background-color: #4a5568; /* Tailwind bg-gray-700 */
+      color: #f97316; /* Tailwind text-orange-500 */
+    }
+
+    /* Content Section */
+    .content {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .text-section {
+      width: 50%;
+      padding-right: 32px;
+    }
+
+    .text-section h2 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .text-section p {
+      margin-bottom: 16px;
+    }
+
+    /* Social Icons */
+    .social-icons a {
+      color: #f97316; /* Tailwind text-orange-500 */
+      margin-right: 16px;
+      font-size: 20px;
+    }
+
+    .social-icons a:hover {
+      color: #d97706; /* Tailwind hover:text-orange-600 */
+    }
+
+    /* Image Section */
+    .image-section img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      .content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .text-section {
+        width: 100%;
+        padding-right: 0;
+      }
+
+      .image-section img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .menu-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .menu-btn div {
+    background-color: #ffffff;
+    height: 2px;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .toggle-top {
+    transform: rotate(45deg) translate(3px, -4.5px);
+  }
+
+  .toggle-middle {
+    opacity: 0;
+  }
+
+  .toggle-bottom {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Menu Links Container */
+  .menu-links {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    pointer-events: none; /* Prevent clicks when hidden */
+  }
+
+  .menu-links.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .menu-links a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .menu-links a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .menu-links a:last-child {
+    border-bottom: none;
+  }
+  p{
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 18px;
+    color: #f7fafc; /* Light text for readability */
+    margin: 20px;
+    word-spacing: 5px;
+    gap: 10px;
+  }
+  </style>
+</head>
+<body>
+  <div class="menu-btn" onclick="toggleMenu()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  
+  <!-- Menu Links -->
+  <div id="menuLinks" class="menu-links">
+    <a href="../Wellcome/index.html">🏠 Home</a>
+    <a href="../User Login/index.html">🔑 Login</a>
+    <a href="../User Sign Up/index.html">📝 Sign Up</a>
+    <a href="../Contact Us/index.html">ℹ️ Contact</a>
+  </div>
+  <br><br><br>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <div class="logo">
+          <img src="../Images/two.png" alt="">
+         <!-- Menu Toggle Button -->
+      </div>
+    </div>
+    <h4 style="font-family: 'Georgia', serif; font-size: 22px; color: #f97316; margin-bottom: 10px; text-align: center;">
+      የሐዋርያት ሥራ 6:7
+    </h4>
+    <p style="font-family: 'Noto Serif Ethiopic', 'Georgia', serif; font-size: 18px; line-height: 1; color: #f7fafc; text-align: justify; background-color: #1a202c; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+      በዚህ ሁኔታ የእግዚአብሔር ቃል እየተስፋፋ ስለ ሄደ፥ በኢየሩሳሌም የአማኞች ቊጥር በጣም እየበዛ ሄደ፤ ከካህናትም እጅግ ብዙዎቹ አመኑ። 
+      <br><br>
+      እስጢፋኖስ በጸጋና በኀይል ተሞልቶ ድንቅ ነገሮችንና ታላላቅ ተአምራትን በሕዝቡ መካከል ያደርግ ነበር፤
+    </p>
+    
+    <!-- Content Section -->
+    <div class="content">
+      <div class="text-section">
+        <h2><span style="color: #f97316;">ካራ ቆሬ ፈለገ ብርሃን ቅዱስ እስጢፋኖስ ሰንበት ትምህርት ቤት ፣ አዲስ አበባ ።</span> <br> <span style="font-size: 30px;"> # KARA KORE FELEGE BERHAN St ESTIFANOS SUNDAY SCHOOL , ADDIS ABABA .</span></h2>
+      </div>
+     
+    </div>
+    <h4 style="font-family: 'Georgia', serif; font-size: 22px; color: #f97316; margin-bottom: 10px; text-align: center;">
+      1 ወደ ቆሮንቶስ ሰዎች 16:18
+    </h4>
+    <p style="font-family: 'Noto Serif Ethiopic', 'Georgia', serif; font-size: 18px; line-height: 1; color: #f7fafc; text-align: justify; background-color: #1a202c; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+      ስለዚህ ማንም እንዳይንቀው፤ እርሱ ከወንድሞች ጋር ወደ እኔ እንዲመጣ ስለምጠብቀው ወደ እኔ በሰላም ተመልሶ እንዲመጣ ለጒዞው የሚያስፈልገውን እርዱት።
+    </p>
+  </div>
+  
+  <script>
+    // Toggle the menu links visibility
+function toggleMenu() {
+    const menuLinks = document.getElementById('menuLinks');
+    const lines = document.querySelectorAll('.menu-btn div');
+
+    // Toggle visibility with animation
+    menuLinks.classList.toggle('visible');
+
+    // Toggle the hamburger icon to an X (cross) shape
+    lines[0].classList.toggle('toggle-top');
+    lines[1].classList.toggle('toggle-middle');
+    lines[2].classList.toggle('toggle-bottom');
+  }
+  </script>
+</body>
+</html>
